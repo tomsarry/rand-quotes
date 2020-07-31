@@ -10,8 +10,7 @@ body {
 }
 
 #root {
-  height: 100%;
-  margin: 0;
+  min-height: 100%;
   padding: 0;
   background-color: $secondary;
   display: flex;
@@ -22,6 +21,7 @@ body {
 .div-quote {
   border-radius: 15px;
   background-color: white;
+  border: 1rem 0;
   padding: 3rem;
   width: 70%;
   min-height: 60%;
@@ -47,6 +47,33 @@ body {
   box-shadow: 0px 0px 5px 2px darken(white, 15%);
   &:hover {
     opacity: 0.8;
+  }
+}
+
+.svg {
+  height: 40px;
+  width: 40px;
+}
+
+.twitter-share-button {
+  align-self: flex-end;
+  position: relative;
+
+  &:hover label {
+    opacity: 1;
+  }
+
+  label {
+    transition: opacity 0.25s ease;
+    position: absolute;
+    bottom: -65%;
+    left: -240%;
+    opacity: 0;
+    background-color: $primary;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+    color: white;
+    white-space: nowrap;
   }
 }
 
