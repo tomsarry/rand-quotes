@@ -17,7 +17,7 @@ const Quote = (props) => {
           src={twitterSVG}
           alt="share it on twitter"
         ></img>
-        <label for="share">Share this quote on Twitter</label>
+        <label htmlFor="share">Share this quote on Twitter</label>
       </a>
     </div>
   );
