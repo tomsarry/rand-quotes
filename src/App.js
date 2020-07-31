@@ -32,7 +32,14 @@ class App extends Component {
   };
 
   render() {
-    return <Quote handleClick={this.handleClick} {...this.state} />;
+    return (
+      <React.Fragment>
+        <Quote {...this.state} />
+        <button className="btn-quote" onClick={this.handleClick}>
+          Get a new Quote
+        </button>
+      </React.Fragment>
+    );
   }
 }
 
