@@ -7,10 +7,10 @@ You are also given the opportunity to share this quote on Twitter.
 
 ## What I learned 
 
-*How to create a button to share something on Twitter, with initial text included
-*Passing props to react elements
-*Conditional rendering (if author is unknown)
-*How to use yarn & netlify to create a production build and host it
+* How to create a button to share something on Twitter, with initial text included
+* Passing props to react elements
+* Conditional rendering (if author is unknown)
+* How to use yarn & netlify to create a production build and host it
 
 ## See it in action
 
@@ -18,4 +18,4 @@ You are also given the opportunity to share this quote on Twitter.
 
 ## Future implementations
 
-*Make an API call to receive a "random" quote from a larger database, while getting rid of the local quote database
+* Make an API call to receive a "random" quote from a larger database, while getting rid of the local quote database
