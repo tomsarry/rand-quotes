@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Quote from "./components/Quote";
+import quotes from "./quotes";
+import "./styles.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// async function randomQuote() {
+//   const response = await fetch("https://api.quotable.io/random");
+//   const data = await response.json();
+//   console.log(`${data.content} —${data.author}`);
+//   return data;
+// }
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      quote: quotes[0].quote,
+      author: quotes[0].author,
+    };
+  }
+
+  getRandomQuote() {
+    // create random 0 <= n <= quotes.length
+    var rand = Math.floor(Math.random() * Math.floor(quotes.length));
+    return quotes[rand];
+  }
+
+  handleClick = () => {
+    const newQuote = this.getRandomQuote();
+    this.setState({ quote: newQuote.quote, author: newQuote.author });
+  };
+
+  render() {
+    return <Quote handleClick={this.handleClick} {...this.state} />;
+  }
 }
 
 export default App;
