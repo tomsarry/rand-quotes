@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import twitterSVG from "../assets/twitter.svg";
 import axios from "axios";
 
-const Quote = () => {
+const Quote = (props) => {
   const [quote, setQuote] = useState({});
   useEffect(() => {
     axios.get("https://api.quotable.io/random").then((response) => {
