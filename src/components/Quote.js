@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import twitterSVG from "../assets/twitter.svg";
+import axios from "axios";
 
-const Quote = (props) => {
-  const link = `https://twitter.com/intent/tweet?text=${props.quote}%20-${props.author}`;
+const Quote = () => {
+  const [quote, setQuote] = useState({});
+  useEffect(() => {
+    axios.get("https://api.quotable.io/random").then((response) => {
+      const result = response.data;
+      setQuote(result);
+    });
+  }, []);
+
+  const link = `https://twitter.com/intent/tweet?text=${quote.content}%20-${quote.author}`;
+
+  var tags = "";
+  if (quote.tags) {
+    tags = quote.tags.map((tag) => (
+      <span key={tag} className="tag">
+        {tag}
+      </span>
+    ));
+  }
+
   return (
     <div className="div-quote">
-      <h1 className="content">{props.quote}</h1>
-      <p className="author">{props.author ? props.author : "unknown"}</p>
+      <div className="div-tags">{tags}</div>
+
+      <h1 className="content">
+        {quote.content ? quote.content : "Loading..."}
+      </h1>
+      <p className="author">{quote.author ? quote.author : "unknown"}</p>
       <a className="twitter-share-button" href={link}>
         <img
           className="svg"
